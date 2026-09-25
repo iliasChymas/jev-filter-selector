@@ -1,0 +1,15 @@
+{
+  "tasks": {
+    "start": "deno run --allow-env=OPENROUTER_API_KEY --allow-net main.ts",
+    "test": "deno run --allow-env=OPENROUTER_API_KEY --allow-net --allow-read=test-cases.json --allow-write=classification-results.csv test-classification.ts"
+  },
+  "imports": {
+    "@openrouter/sdk": "npm:@openrouter/sdk@^1.3.24",
+    "@std/dotenv": "jsr:@std/dotenv@^0.225.8"
+  },
+  "nodeModulesDir": "auto",
+  "allowScripts": {
+    "allow": [],
+    "deny": ["npm:@openrouter/sdk@1.3.24"]
+  }
+}

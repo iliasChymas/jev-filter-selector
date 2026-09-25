@@ -1,0 +1,348 @@
+[
+  {
+    "id": "wifi-only-module",
+    "text": "A device that supports WiFi 6 (802.11ax).",
+    "expected": [
+      { "category": "wifi_type", "id": 4 }
+    ]
+  },
+  {
+    "id": "dual-wireless-device",
+    "text": "The device supports WiFi 7, Bluetooth 5.4, and Bluetooth LE 5.3.",
+    "expected": [
+      { "category": "wifi_type", "id": 5 },
+      { "category": "bluetooth", "id": 9 },
+      { "category": "bluetooth", "id": 32 }
+    ]
+  },
+  {
+    "id": "consumer-5g-smartphone",
+    "text": "A consumer smartphone with WiFi 6 and WiFi 6E, Bluetooth 5.3, consumer SGP.22 eSIM, 3GPP Release 17, 5G SA, VoLTE, and VoWi-Fi. It is a handheld device for the IoT consumer market and supports real-time data.",
+    "expected": [
+      { "category": "wifi_type", "id": 4 },
+      { "category": "wifi_type", "id": 6 },
+      { "category": "bluetooth", "id": 10 },
+      { "category": "esim", "id": 3 },
+      { "category": "feature_3gpp", "id": 6 },
+      { "category": "network_technologies", "id": 14 },
+      { "category": "network_technologies", "id": 8 },
+      { "category": "network_technologies", "id": 9 },
+      { "category": "use_cases", "id": 1 },
+      { "category": "form_factors", "id": 7 },
+      { "category": "verticals", "id": 2 },
+      { "category": "device_types", "id": 2 }
+    ]
+  },
+  {
+    "id": "industrial-iot-sensor",
+    "text": "An LGA industrial sensor and actuator module with WiFi 5, Bluetooth LE 5.2, IoT SGP.32 eSIM, Release 17, LTE-M and NB-IoT. It will be used for monitoring, maintenance, and industrial automation in IoT Industrial and manufacturing deployments.",
+    "expected": [
+      { "category": "wifi_type", "id": 3 },
+      { "category": "bluetooth", "id": 31 },
+      { "category": "esim", "id": 4 },
+      { "category": "feature_3gpp", "id": 6 },
+      { "category": "network_technologies", "id": 4 },
+      { "category": "network_technologies", "id": 10 },
+      { "category": "use_cases", "id": 21 },
+      { "category": "use_cases", "id": 22 },
+      { "category": "use_cases", "id": 25 },
+      { "category": "form_factors", "id": 1 },
+      { "category": "verticals", "id": 3 },
+      { "category": "verticals", "id": 12 },
+      { "category": "device_types", "id": 1 },
+      { "category": "device_types", "id": 14 }
+    ]
+  },
+  {
+    "id": "agriculture-gateway",
+    "text": "A miniPCIe gateway for smart agriculture with WiFi 6, Bluetooth 5.2, M2M SGP.02 eSIM, LTE-M, LTE, and NB-IoT. The gateway performs monitoring, positioning and tracking, and remote operation.",
+    "expected": [
+      { "category": "wifi_type", "id": 4 },
+      { "category": "bluetooth", "id": 8 },
+      { "category": "esim", "id": 2 },
+      { "category": "network_technologies", "id": 4 },
+      { "category": "network_technologies", "id": 5 },
+      { "category": "network_technologies", "id": 10 },
+      { "category": "use_cases", "id": 21 },
+      { "category": "use_cases", "id": 14 },
+      { "category": "use_cases", "id": 23 },
+      { "category": "form_factors", "id": 12 },
+      { "category": "verticals", "id": 4 },
+      { "category": "device_types", "id": 7 }
+    ]
+  },
+  {
+    "id": "healthcare-wearable",
+    "text": "A connected-healthcare handheld wearable with WiFi 6E, Bluetooth 5.3 and LE 5.3, consumer eSIM, 5G SA, VoLTE, and VoWi-Fi. It supports healthcare monitoring, real-time data, and geolocation.",
+    "expected": [
+      { "category": "wifi_type", "id": 6 },
+      { "category": "bluetooth", "id": 10 },
+      { "category": "bluetooth", "id": 32 },
+      { "category": "esim", "id": 3 },
+      { "category": "network_technologies", "id": 14 },
+      { "category": "network_technologies", "id": 8 },
+      { "category": "network_technologies", "id": 9 },
+      { "category": "use_cases", "id": 6 },
+      { "category": "use_cases", "id": 21 },
+      { "category": "use_cases", "id": 1 },
+      { "category": "use_cases", "id": 43 },
+      { "category": "verticals", "id": 1 },
+      { "category": "device_types", "id": 2 }
+    ]
+  },
+  {
+    "id": "autonomous-fleet-vehicle",
+    "text": "A vehicle-mounted autonomous AGV platform for transportation and logistics. It supports 5G SA, 5G NSA, and 5G RedCap on Release 18 and is used for autonomous vehicles, telematics, fleet management, and geolocation.",
+    "expected": [
+      { "category": "feature_3gpp", "id": 3 },
+      { "category": "network_technologies", "id": 12 },
+      { "category": "network_technologies", "id": 14 },
+      { "category": "network_technologies", "id": 18 },
+      { "category": "use_cases", "id": 3 },
+      { "category": "use_cases", "id": 16 },
+      { "category": "use_cases", "id": 17 },
+      { "category": "use_cases", "id": 43 },
+      { "category": "verticals", "id": 10 },
+      { "category": "device_types", "id": 12 },
+      { "category": "device_types", "id": 18 }
+    ]
+  },
+  {
+    "id": "smart-city-camera",
+    "text": "An integrated scanner and camera for smart-city public safety. It supports WiFi 6, LTE, 5G NSA, video surveillance, computer vision, security, physical security and access control, and emergency incident reporting.",
+    "expected": [
+      { "category": "wifi_type", "id": 4 },
+      { "category": "network_technologies", "id": 5 },
+      { "category": "network_technologies", "id": 12 },
+      { "category": "use_cases", "id": 28 },
+      { "category": "use_cases", "id": 26 },
+      { "category": "use_cases", "id": 13 },
+      { "category": "use_cases", "id": 37 },
+      { "category": "use_cases", "id": 41 },
+      { "category": "form_factors", "id": 6 },
+      { "category": "verticals", "id": 6 },
+      { "category": "verticals", "id": 25 },
+      { "category": "device_types", "id": 13 }
+    ]
+  },
+  {
+    "id": "cold-chain-tracker",
+    "text": "An asset tracker for cold-chain transportation and logistics with Bluetooth LE 5.1, LTE-M, NB-IoT, and geolocation. It supports cold chain, positioning and tracking, fleet management, monitoring, and logistics.",
+    "expected": [
+      { "category": "bluetooth", "id": 28 },
+      { "category": "network_technologies", "id": 4 },
+      { "category": "network_technologies", "id": 10 },
+      { "category": "use_cases", "id": 18 },
+      { "category": "use_cases", "id": 14 },
+      { "category": "use_cases", "id": 17 },
+      { "category": "use_cases", "id": 21 },
+      { "category": "use_cases", "id": 30 },
+      { "category": "use_cases", "id": 43 },
+      { "category": "verticals", "id": 10 },
+      { "category": "device_types", "id": 15 }
+    ]
+  },
+  {
+    "id": "factory-robot",
+    "text": "A robotics and machinery system for manufacturing with WiFi 6E, private 5G SA, and Release 17. It performs industrial automation, computer vision, quality assurance and inspection, material handling, remote operation, and worker safety.",
+    "expected": [
+      { "category": "wifi_type", "id": 6 },
+      { "category": "feature_3gpp", "id": 6 },
+      { "category": "network_technologies", "id": 14 },
+      { "category": "use_cases", "id": 25 },
+      { "category": "use_cases", "id": 26 },
+      { "category": "use_cases", "id": 27 },
+      { "category": "use_cases", "id": 29 },
+      { "category": "use_cases", "id": 23 },
+      { "category": "use_cases", "id": 24 },
+      { "category": "verticals", "id": 12 },
+      { "category": "device_types", "id": 11 }
+    ]
+  },
+  {
+    "id": "railway-mounted-unit",
+    "text": "A vehicle-mounted railway device using LTE, 5G SA, VoLTE, and VoNR. It supports railway operations, trackside service, rail infrastructure maintenance, train operator communications, passenger safety and security, and emergency coordination.",
+    "expected": [
+      { "category": "network_technologies", "id": 5 },
+      { "category": "network_technologies", "id": 14 },
+      { "category": "network_technologies", "id": 8 },
+      { "category": "network_technologies", "id": 22 },
+      { "category": "use_cases", "id": 20 },
+      { "category": "use_cases", "id": 33 },
+      { "category": "use_cases", "id": 50 },
+      { "category": "use_cases", "id": 48 },
+      { "category": "use_cases", "id": 49 },
+      { "category": "use_cases", "id": 47 },
+      { "category": "verticals", "id": 24 },
+      { "category": "device_types", "id": 18 }
+    ]
+  },
+  {
+    "id": "hazardous-oil-gas-device",
+    "text": "An integrated device for oil and gas and mining sites, certified for EX Zone 1/21 and Class 1 Division 1. It supports worker safety, monitoring, maintenance, secure communications, and an emergency distress-button alarm over LTE and 5G SA.",
+    "expected": [
+      { "category": "network_technologies", "id": 5 },
+      { "category": "network_technologies", "id": 14 },
+      { "category": "use_cases", "id": 51 },
+      { "category": "use_cases", "id": 24 },
+      { "category": "use_cases", "id": 21 },
+      { "category": "use_cases", "id": 22 },
+      { "category": "use_cases", "id": 38 },
+      { "category": "use_cases", "id": 39 },
+      { "category": "form_factors", "id": 6 },
+      { "category": "verticals", "id": 8 },
+      { "category": "verticals", "id": 13 }
+    ]
+  },
+  {
+    "id": "public-safety-handheld",
+    "text": "A public-safety handheld with WiFi 6, Bluetooth 5.3, LTE, 5G SA, VoLTE, VoWi-Fi, and VoNR. It supports secure communications, tactical communications bubble, emergency coordination, emergency incident reporting, geolocation, and cross-unit collaboration.",
+    "expected": [
+      { "category": "wifi_type", "id": 4 },
+      { "category": "bluetooth", "id": 10 },
+      { "category": "network_technologies", "id": 5 },
+      { "category": "network_technologies", "id": 14 },
+      { "category": "network_technologies", "id": 8 },
+      { "category": "network_technologies", "id": 9 },
+      { "category": "network_technologies", "id": 22 },
+      { "category": "use_cases", "id": 38 },
+      { "category": "use_cases", "id": 45 },
+      { "category": "use_cases", "id": 47 },
+      { "category": "use_cases", "id": 41 },
+      { "category": "use_cases", "id": 43 },
+      { "category": "use_cases", "id": 42 },
+      { "category": "verticals", "id": 25 },
+      { "category": "device_types", "id": 2 }
+    ]
+  },
+  {
+    "id": "media-streaming-tablet",
+    "text": "A media tablet for venues with WiFi 7, Bluetooth 5.4, 5G NSA and 5G SA. It supports 5G livestreaming, video streaming, eMBMS, real-time data, and media applications.",
+    "expected": [
+      { "category": "wifi_type", "id": 5 },
+      { "category": "bluetooth", "id": 9 },
+      { "category": "network_technologies", "id": 12 },
+      { "category": "network_technologies", "id": 14 },
+      { "category": "use_cases", "id": 36 },
+      { "category": "use_cases", "id": 40 },
+      { "category": "use_cases", "id": 44 },
+      { "category": "use_cases", "id": 1 },
+      { "category": "use_cases", "id": 35 },
+      { "category": "form_factors", "id": 10 },
+      { "category": "verticals", "id": 18 },
+      { "category": "verticals", "id": 19 }
+    ]
+  },
+  {
+    "id": "utilities-meter",
+    "text": "An integrated utilities meter and IoT sensor using M2M SGP.02 eSIM, LTE-M and NB-IoT. It supports real-time data, utilities monitoring, maintenance, and remote operation for energy plants.",
+    "expected": [
+      { "category": "esim", "id": 2 },
+      { "category": "network_technologies", "id": 4 },
+      { "category": "network_technologies", "id": 10 },
+      { "category": "use_cases", "id": 1 },
+      { "category": "use_cases", "id": 12 },
+      { "category": "use_cases", "id": 21 },
+      { "category": "use_cases", "id": 22 },
+      { "category": "use_cases", "id": 23 },
+      { "category": "form_factors", "id": 6 },
+      { "category": "verticals", "id": 23 },
+      { "category": "verticals", "id": 17 },
+      { "category": "device_types", "id": 14 }
+    ]
+  },
+  {
+    "id": "smart-building-security",
+    "text": "A smart-building gateway with WiFi 6, Bluetooth 5.2, LTE, and VoLTE. It handles smart building automation, physical security and access control, video surveillance, monitoring, and emergency alarms.",
+    "expected": [
+      { "category": "wifi_type", "id": 4 },
+      { "category": "bluetooth", "id": 8 },
+      { "category": "network_technologies", "id": 5 },
+      { "category": "network_technologies", "id": 8 },
+      { "category": "use_cases", "id": 5 },
+      { "category": "use_cases", "id": 37 },
+      { "category": "use_cases", "id": 28 },
+      { "category": "use_cases", "id": 21 },
+      { "category": "use_cases", "id": 39 },
+      { "category": "verticals", "id": 5 },
+      { "category": "device_types", "id": 7 }
+    ]
+  },
+  {
+    "id": "mining-safety-wearable",
+    "text": "A mining wearable with Bluetooth LE 5.2, LTE-M, 5G RedCap, and Release 18. It supports worker safety, positioning and tracking, geolocation, monitoring, secure communications, and emergency distress-button alarms.",
+    "expected": [
+      { "category": "bluetooth", "id": 31 },
+      { "category": "feature_3gpp", "id": 3 },
+      { "category": "network_technologies", "id": 4 },
+      { "category": "network_technologies", "id": 18 },
+      { "category": "use_cases", "id": 24 },
+      { "category": "use_cases", "id": 14 },
+      { "category": "use_cases", "id": 43 },
+      { "category": "use_cases", "id": 21 },
+      { "category": "use_cases", "id": 38 },
+      { "category": "use_cases", "id": 39 },
+      { "category": "verticals", "id": 13 },
+      { "category": "device_types", "id": 2 }
+    ]
+  },
+  {
+    "id": "airport-logistics-scanner",
+    "text": "A handheld scanner and camera for airport warehouse logistics with WiFi 6E, Bluetooth 5.3, LTE, and 5G NSA. It supports material handling, logistics, quality inspection, computer vision, and positioning and tracking.",
+    "expected": [
+      { "category": "wifi_type", "id": 6 },
+      { "category": "bluetooth", "id": 10 },
+      { "category": "network_technologies", "id": 5 },
+      { "category": "network_technologies", "id": 12 },
+      { "category": "use_cases", "id": 29 },
+      { "category": "use_cases", "id": 30 },
+      { "category": "use_cases", "id": 27 },
+      { "category": "use_cases", "id": 26 },
+      { "category": "use_cases", "id": 14 },
+      { "category": "verticals", "id": 14 },
+      { "category": "verticals", "id": 16 },
+      { "category": "device_types", "id": 13 }
+    ]
+  },
+  {
+    "id": "multi-network-development-kit",
+    "text": "An M.2 development kit and module supporting WiFi 4, WiFi 5, Bluetooth 4.2, Bluetooth 5.1, M2M and IoT eSIM profiles, Release 16 and Release 18, LTE, LTE-Advanced, LTE-Advanced Pro, 5G NSA, and 5G SA.",
+    "expected": [
+      { "category": "wifi_type", "id": 2 },
+      { "category": "wifi_type", "id": 3 },
+      { "category": "bluetooth", "id": 4 },
+      { "category": "bluetooth", "id": 5 },
+      { "category": "esim", "id": 2 },
+      { "category": "esim", "id": 4 },
+      { "category": "feature_3gpp", "id": 2 },
+      { "category": "feature_3gpp", "id": 3 },
+      { "category": "network_technologies", "id": 5 },
+      { "category": "network_technologies", "id": 6 },
+      { "category": "network_technologies", "id": 21 },
+      { "category": "network_technologies", "id": 12 },
+      { "category": "network_technologies", "id": 14 },
+      { "category": "form_factors", "id": 2 },
+      { "category": "device_types", "id": 10 },
+      { "category": "device_types", "id": 1 }
+    ]
+  },
+  {
+    "id": "legacy-featurephone",
+    "text": "A featurephone supporting WiFi 4, Bluetooth 4.2 and LE 4.2, 2G GSM/GPRS/EDGE, 3G UMTS/HSPA, LTE, VoLTE, and Release 14. It is a handheld consumer device used for secure communications and geolocation.",
+    "expected": [
+      { "category": "wifi_type", "id": 2 },
+      { "category": "bluetooth", "id": 4 },
+      { "category": "bluetooth", "id": 17 },
+      { "category": "feature_3gpp", "id": 7 },
+      { "category": "network_technologies", "id": 13 },
+      { "category": "network_technologies", "id": 16 },
+      { "category": "network_technologies", "id": 5 },
+      { "category": "network_technologies", "id": 8 },
+      { "category": "use_cases", "id": 38 },
+      { "category": "use_cases", "id": 43 },
+      { "category": "form_factors", "id": 11 },
+      { "category": "verticals", "id": 2 },
+      { "category": "device_types", "id": 2 }
+    ]
+  }
+]

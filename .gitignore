@@ -1,0 +1,22 @@
+# Secrets and local environment configuration
+.env
+.env.*
+!.env.example
+
+# Installed dependencies and generated output
+node_modules/
+dist/
+build/
+coverage/
+
+# Local tooling state
+.agents/
+.codex/
+
+# Operating-system and editor files
+.DS_Store
+*.swp
+*.tmp
+
+# Local scratch files
+foo.txt

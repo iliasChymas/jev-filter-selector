@@ -39,18 +39,12 @@ classification even though its strict case result is false.
 | Missing expected fields                                  |              28 |
 | Additional fields                                        |               6 |
 | Request errors                                           |               0 |
+| Average request time                                     |          915 ms |
 | Approximate precision if every extra is considered wrong |           97.1% |
 
-## Classification time
-
-The complete two-stage classification took an average of 915 ms per prompt.
-The median was 826 ms, with individual prompts ranging from 720 ms to 2,143 ms.
-All 20 prompts completed in 18.292 seconds. These measurements cover both the
-category request and the subsequent field request, but exclude CSV writing.
-
 The average case contains 11.3 expected fields. Requiring every field to pass
-makes the perfect-case metric compound errors across large descriptions. The 30%
-perfect-case result therefore does not mean that only 30% of filters were
+makes the perfect-case metric compound errors across large descriptions. The
+30% perfect-case result therefore does not mean that only 30% of filters were
 classified correctly.
 
 ## Results by category
@@ -68,115 +62,8 @@ classified correctly.
 | Device types         |    10 |       19 |  52.6% |
 
 Network technologies and 3GPP releases were fully recovered. Device types are
-the main weakness, particularly composite labels such as
-`Module & Chipset`, `Gateway & Dongles`, and `Handhelds & Wearables`.
-
-## Coverage by device
-
-| Test case                       | Found | Expected | Coverage | Missing |
-| ------------------------------- | ----: | -------: | -------: | ------: |
-| `wifi-only-module`              |     1 |        1 |   100.0% |       0 |
-| `dual-wireless-device`          |     3 |        3 |   100.0% |       0 |
-| `consumer-5g-smartphone`        |     9 |       12 |    75.0% |       3 |
-| `industrial-iot-sensor`         |    13 |       14 |    92.9% |       1 |
-| `agriculture-gateway`           |    11 |       12 |    91.7% |       1 |
-| `healthcare-wearable`           |    13 |       13 |   100.0% |       0 |
-| `autonomous-fleet-vehicle`      |    11 |       11 |   100.0% |       0 |
-| `smart-city-camera`             |    11 |       12 |    91.7% |       1 |
-| `cold-chain-tracker`            |    10 |       11 |    90.9% |       1 |
-| `factory-robot`                 |    11 |       11 |   100.0% |       0 |
-| `railway-mounted-unit`          |    10 |       12 |    83.3% |       2 |
-| `hazardous-oil-gas-device`      |     9 |       11 |    81.8% |       2 |
-| `public-safety-handheld`        |    13 |       15 |    86.7% |       2 |
-| `media-streaming-tablet`        |    10 |       12 |    83.3% |       2 |
-| `utilities-meter`               |    10 |       12 |    83.3% |       2 |
-| `smart-building-security`       |     9 |       11 |    81.8% |       2 |
-| `mining-safety-wearable`        |    12 |       12 |   100.0% |       0 |
-| `airport-logistics-scanner`     |    11 |       12 |    91.7% |       1 |
-| `multi-network-development-kit` |    10 |       16 |    62.5% |       6 |
-| `legacy-featurephone`           |    11 |       13 |    84.6% |       2 |
-
-Six cases were perfect, eleven missed at most one field, and eighteen missed at
-most two fields. The two main outliers were `consumer-5g-smartphone` and
-`multi-network-development-kit`.
-
-## Category selection and field selection
-
-Seven expected fields were not evaluated because their parent category did not
-pass the category threshold. Category-stage recall was therefore 219/226, or
-96.9%. The other 21 missing expectations reached field classification but did
-not pass the field threshold.
-
-The largest field-stage weakness appeared when a description explicitly
-requested several values from the same category. For example,
-`multi-network-development-kit` missed explicit Wi-Fi and eSIM values while
-correctly identifying most of its other requirements. Field questions should
-state that multiple values in one category can independently be true.
-
-## Additional selections
-
-Only six additional fields were enabled:
-
-| Test case                   | Additional field           | Confidence |
-| --------------------------- | -------------------------- | ---------: |
-| `industrial-iot-sensor`     | Bluetooth 5.2              |       0.95 |
-| `cold-chain-tracker`        | Bluetooth 5.1              |       0.94 |
-| `healthcare-wearable`       | Supported                  |       0.75 |
-| `smart-building-security`   | Security                   |       0.81 |
-| `mining-safety-wearable`    | Bluetooth 5.2              |       0.94 |
-| `airport-logistics-scanner` | Transportation & Logistics |       0.88 |
-
-These selections are semantically defensible. For example, Bluetooth LE 5.2
-implies Bluetooth 5.2 capability. They should be reviewed as suggestions rather
-than treated as automatic failures.
-
-## Interpretation
-
-The classifier is already useful for automatically populating device filters:
-
-- It recovered 87.6% of stated expected fields.
-- It generated very few unrelated suggestions.
-- It completed all requests without errors.
-- Most imperfect devices were missing only one or two fields.
-
-The best next improvements are targeted rather than a broad threshold change:
-
-1. Explicitly tell every field question that multiple values in the same
-   category may be selected independently.
-2. Add direct aliases for common device-type terms such as `module`, `gateway`,
-   `handheld`, `sensor`, and `vehicle-mounted`.
-3. Review expectations that are more specific than their source descriptions,
-   such as mapping a generic emergency alarm to a distress-button alarm.
-4. Continue reporting field coverage alongside strict perfect-case results.
-
-## Running the project
-
-Start the browser dashboard at `http://localhost:9000`:
-
-```bash
-export OPENROUTER_API_KEY="your-key-here"
-deno task start
-```
-
-The API key is read only by the Deno server and is never sent to the browser.
-The catalog can load without a key, but classification requires one.
-
-Run the original interactive command-line classifier:
-
-```bash
-deno task cli
-```
-
-Run the 20-case evaluation and generate a new `classification-results.csv`,
-including end-to-end timing for every prompt:
-
-```bash
-deno task test
-```
-
-Classification and test commands require `OPENROUTER_API_KEY` in the
-environment. The test task writes its CSV incrementally after each case so
-completed results survive an interrupted run.
+the main weakness, particularly composite labels such as `Module & Chipset`,
+`Gateway & Dongles`, and `Handhelds & Wearables`.
 
 ## Saved evaluation history
 
@@ -189,3 +76,10 @@ completed results survive an interrupted run.
   single-request baseline from before the timing-enabled run.
 - [`classification-results.csv`](./classification-results.csv): latest expanded
   multi-field suite.
+
+## Experiment outcome
+
+The classifier recovered 87.6% of expected filters with 97.1% approximate
+precision, no request errors, and a 915 ms average response time. It is already
+useful for filter suggestions, while device types and other composite labels
+remain the clearest opportunity for improvement.

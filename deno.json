@@ -1,6 +1,7 @@
 {
   "tasks": {
-    "start": "deno run --allow-env=OPENROUTER_API_KEY --allow-net main.ts",
+    "start": "deno run --allow-env=OPENROUTER_API_KEY --allow-net --allow-read=public server.ts",
+    "cli": "deno run --allow-env=OPENROUTER_API_KEY --allow-net main.ts",
     "test": "deno run --allow-env=OPENROUTER_API_KEY --allow-net --allow-read=test-cases.json --allow-write=classification-results.csv test-classification.ts"
   },
   "imports": {

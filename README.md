@@ -141,10 +141,20 @@ The best next improvements are targeted rather than a broad threshold change:
 
 ## Running the project
 
-Interactive classification:
+Start the browser dashboard at `http://localhost:9000`:
 
 ```bash
+export OPENROUTER_API_KEY="your-key-here"
 deno task start
+```
+
+The API key is read only by the Deno server and is never sent to the browser.
+The catalog can load without a key, but classification requires one.
+
+Run the original interactive command-line classifier:
+
+```bash
+deno task cli
 ```
 
 Run the 20-case evaluation and generate a new `classification-results.csv`:
@@ -153,7 +163,7 @@ Run the 20-case evaluation and generate a new `classification-results.csv`:
 deno task test
 ```
 
-Both commands require `OPENROUTER_API_KEY` in the environment. The test task
+Classification and test commands require `OPENROUTER_API_KEY` in the environment. The test task
 writes its CSV incrementally after each case so completed results survive an
 interrupted run.
 

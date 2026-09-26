@@ -42,7 +42,9 @@ function validateTestCases(cases: TestCase[]): void {
     for (const expected of testCase.expected) {
       if (!fieldName(expected)) {
         throw new Error(
-          `Unknown expected field ${fieldKey(expected.category, expected.id)} in ${testCase.id}`,
+          `Unknown expected field ${
+            fieldKey(expected.category, expected.id)
+          } in ${testCase.id}`,
         );
       }
     }
@@ -58,6 +60,7 @@ function toCsv(rows: CsvRow[]): string {
   const headers = [
     "case_id",
     "text",
+    "duration_ms",
     "case_passed",
     "status",
     "category",
@@ -73,7 +76,9 @@ function toCsv(rows: CsvRow[]): string {
 
   return [
     headers.join(","),
-    ...rows.map((row) => headers.map((header) => escapeCsv(row[header] ?? "")).join(",")),
+    ...rows.map((row) =>
+      headers.map((header) => escapeCsv(row[header] ?? "")).join(",")
+    ),
   ].join("\n") + "\n";
 }
 
@@ -84,6 +89,7 @@ let passedCases = 0;
 
 for (const [index, testCase] of testCases.entries()) {
   console.log(`[${index + 1}/${testCases.length}] ${testCase.id}`);
+  const startedAt = performance.now();
 
   try {
     const categoryAnswers = await sendNoulRequest(
@@ -97,6 +103,8 @@ for (const [index, testCase] of testCases.entries()) {
         createFieldQuestions(selectedCategories),
       )
       : {};
+    const durationMs = Math.round(performance.now() - startedAt);
+    console.log(`  Completed in ${durationMs} ms`);
     const categoryConfidences = Object.values(Category)
       .map((category) => `${category}:${categoryAnswers[category]?.noul ?? ""}`)
       .join(" | ");
@@ -119,6 +127,7 @@ for (const [index, testCase] of testCases.entries()) {
       rows.push({
         case_id: testCase.id,
         text: testCase.text,
+        duration_ms: durationMs,
         case_passed: casePassed,
         status: enabledKeys.has(key) ? "PASS" : "MISSING",
         category: expected.category,
@@ -139,6 +148,7 @@ for (const [index, testCase] of testCases.entries()) {
       rows.push({
         case_id: testCase.id,
         text: testCase.text,
+        duration_ms: durationMs,
         case_passed: casePassed,
         status: "EXTRA",
         category: extra.category,
@@ -153,9 +163,12 @@ for (const [index, testCase] of testCases.entries()) {
       });
     }
   } catch (error) {
+    const durationMs = Math.round(performance.now() - startedAt);
+    console.error(`  Failed after ${durationMs} ms`);
     rows.push({
       case_id: testCase.id,
       text: testCase.text,
+      duration_ms: durationMs,
       case_passed: false,
       status: "ERROR",
       category: "",
